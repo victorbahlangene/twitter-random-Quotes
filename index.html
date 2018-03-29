@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#quoteBtn").click(random);
+            $("#twitterBtn").click(postTweet);
+            function postTweet() {
+                //var words = $(".result").text("test 1");
+                //var textToTweet = $(".result").val();
+                //alert($(".result").text())
+                var twtLink = 'http://twitter.com/home?status=' + encodeURIComponent($(".result").text());
+                window.open(twtLink, '_blank');
+            }
+            function random() {
+                var quotes = {
+                    firstQuote: "“The opposite of boredom is not pleasure... but excitement. People will gladly seek out any kind of excitement, even pain.” - Shougo Makishima",
+                    secondQuote: "“There's a limit to the amount of pleasure a person can obtain. But pleasure brought out by intellect is infinite.” - Touma Kouzaburou",
+                    thirdQuote: "“When something impossible happens, there are only two possibilities. Either your assumptions are wrong, or you have gone crazy.” - Shinya Kougami",
+                    fourthQuote: "“As a leader, you need to learn from the mistakes of others, not your own.” - Ginoza Nobuchika",
+                    fifthQuote: "“Everything you've been taught is based on theories and logic. Soon, you'll come to realize how pointless they are.” - Tomomi Masaoka"
+                };
+                var mathResult = Math.floor((Math.random() * 5) + 1);
+
+                if (mathResult == 1) {
+                    $(".result").text(quotes["firstQuote"]);
+                } else if (mathResult == 2) {
+                    $(".result").text(quotes["secondQuote"]);
+                } else if (mathResult == 3) {
+                    $(".result").text(quotes["thirdQuote"]);
+
+                } else if (mathResult == 4) {
+                    $(".result").text(quotes["fourthQuote"]);
+
+                } else if (mathResult == 5) {
+                    $(".result").text(quotes["fifthQuote"]);
+
+                }
+
+            }
+
+
+        });
+    </script>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Quote Generator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+                aria-expanded="false" aria-label="Toggle navigation">
+               VB
+            </button>
+        </nav>
+        <br>
+    </header>
+</head>
+<style>
+    #quoteBtn {
+        float: right;
+    }
+
+    #quoteArea {
+        background-color: #f4f4f4;
+
+    }
+</style>
+
+<body>
+    <br>
+    <div class="container">
+        <div id="quoteArea">
+            <div class="result text text-fixed">“I think the only time people really have value is when they act according to their own will.” - Shougo Makishima</div>
+        </div>
+        <br>
+        <button id="twitterBtn" class="btn btn-outline-info">Twitter</button>
+        <button id="quoteBtn" class="btn btn-outline-primary">Quote</button>
+    </div>
+</body>
+
+</html>
